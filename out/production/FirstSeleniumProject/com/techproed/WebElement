@@ -1,0 +1,151 @@
+
+        * Webelement : Tiklayabildigimiz, inceleyebildigimiz her sey birer webelementtir.
+        Bir web sayfasindaki web elemanlarini data type'i WebElement'tir.
+        <input type="email" class="form-control" placeholder="Email"
+        data-test="email" name="session[email]" id="session_email">
+        - Tag Name : Bir web sayfasindaki herhangi bir webelementin html kodlarinda < isaretinden sonra
+        gelen ilk kelime tag name'dir.
+                Ornek : <input, <a, <span...
+        - Attribute : Bir web sayfasinda herhangi bir webelementin html kodlarinda tag name'den sonra gelen
+        devaminda "=" olan kelimelere denir.
+                Ornek : class, type, name data-test, id....
+        - Value : Bir web sayfasinda herhangi bir webelementin html kodlarinda attribute'lere karsilik gelen
+        degerlere denir.
+                Ornek : id attribute'nun value'su "session_email"dir.
+                Ornek : type attribute'nun value'su "email"dir.
+        - findElement() : Web sayfasindaki istedigimiz elementi bulup bize getiriyor.
+        - findElements() : Web sayfasindaki istedigimiz elementleri bulup bize getiriyor.
+        - sendKeys("gonderilecek yazi") : Web sayfasindaki webelementin icerisine yazi gondermek icin kullanilir.
+
+        1) LOCATORS (Konum Bulucular)
+        - Bir web sayfasindaki web elementlerin yerini bulmamiza yarar.
+        - Bir web elementini bulabilmek icin 8 tane selenium locator vardir.
+        a) id
+        b) name
+        c) className
+        d) tagName
+        e) linkText
+        f) partialLinkText
+        g) xpath => xpath yazmanin birden fazla yolu vardir.
+        h) css => => path yazmanin birden fazla yolu vardir. yazmanin birden fazla yolu vardir.
+
+        Hangisi method'u kullanacagiz ? id'si yoksa name, name'i yoksa className...
+        seklinde bir sira izleyerek, o web elementin yerini buluyoruz.
+
+         <a id="sign-in" class="nav-item nav-link" data-test="sign-in" href="/sign_in">Sign in</a>
+         tagName : a
+         attribute : id, class, data-test, href
+         value : id = "sign-in",
+                 class = "nav-item nav-link",
+                 data-test = "sign-in",
+                 href = "/sign_in"
+         id bir lokasyon turudur. Bir webelementi id'sine bakarak bulabiliriz.
+    WebElement : bir web sayıfasındaki web elementlerin date type'i WebElementtir.
+    html de head de kiler web elemnet degildir.. yani title (sayfa basligi) body kismindakiler
+    sayfanin web elementleridir cunku sayfada bunlar gorunur
+
+        clear():
+        ----------------------------KOMUTLAR----------------------------------
+        1. get    :   yazdığımız url(adres)'in açılmasını sağlar.
+        2. close  :   açık olan pencereyi kapatır.
+        3. quit	  :   açık olan driverı tüm penceleri ile birlikte kapatıyor.
+
+        ------------------NAVİGATE METHODS----------------------
+        .navigate().to("sayfa adresi") -> istediğiniz websayfasına geçiş yapıyor.
+        .navigate().back() 	  -> bir önceki sayfaya geri dönüyor.
+        .navigate().forward() -> geri geldiğimiz bir önceki sayfaya gidiyor.
+        .navigate().refresh() -> sayfayı yeniliyor.
+        .manage().window().maximize() -> driverımız ekranı kaplıyor.
+
+
+        SELENİUM 2.DERS (24.05.2021)
+        DERS TEKRARI
+        1-proje oluşturduk
+        				  file-> new -> project-> java -< next-> proje ismi
+        2-kütüphaneri proje ekledik
+         				  file-> projecy scructor-> modules-> dependencies-> +->jars or directory-> kütüphaneleri ekledik
+        3- package ve class oluşturduk
+        4- main methodu ekledik
+        5- System.setProperty oluşturduk
+        6- Webdriver driver = new ChromeDriver-> dirver nesnesi ürettik
+
+        ----------KOMUTLAR------------
+
+        1-.manege().window().maximize() : driver'ı ekrana kaplatıyoruz
+        2- get() 						: istediğimiz adrese gidiyorduk
+        3- close()						: açık olan driverımızı kapatıyor
+        4- quit() 						: tüm driver'ı yani tüm sekmeleri kapatıyordu
+
+        --------NAVİGATEMETHODS-------
+
+        1- .navigate().to("adres ismi") : istediğimiz web adresine bizi götürüyor
+        2- .navigate().back()           : istediğimiz web adresinden bir önceki adrese 									 geri gidiyor
+        3- .navigate().forward()		: geldiğimiz sayaya ileriye gidiyor
+        4- .navigate().refresh() 		: bulunduğu web sayfasını yeniliyordu
+
+        ===============================================
+
+        2.DERS NOTLARI
+        .getTitle()       => bulunduğumuz sayfanın title'ını (başlığını) alıyoruz
+        .get CurrentUrl() => bulunduğumuz sayfanın url'sini (adresini) alıyoruz
+        sout              => syste.out.println() kısaca yazılımı
+
+        SELENİUM 3.DERS (26.05.2021)
+
+        geçen ders tekrar
+
+        getTitle()      : bulunduğumuz sayfanın başlığını alıyorduk
+        getCurrentUrl() : bulunduğumuz sayfanın Url'sini (adresini) alıyorduk
+        if(){}else{}    : koşul ile doğrulatma işlemi yaptık
+        .contains()     : içeriyor mu diye sorgulattık
+
+        -----3. ders--------
+
+        Webelement : bir web sayfsında gördüğümüz herşey bir webelementtir
+
+
+        <input type="email" class="form-control" placeholder="Email" data-test="email" name="session[email]" id="session_email">
+
+
+        <.......>
+
+        <a
+        <div
+        <span
+        ...
+        tagName   : tag ismi : bir web sayfasındaki herhangi bir webelementin html kodlarında < işaretinden sonra gelen ilk kelime tagName'dir
+        		ör: <input, <a, <span,...
+
+        attribute : bir web saydasında herhangi bir webelementin html kodlarında  tag nameden sonra gelen
+                    devamında = olan kelimelere denir
+                    ör: class, type, name data-test, id,....
+        value     : bir web saydasında herhangi bir webelementin html kodlarında attribue'lere karşılık gelen
+                    değerler value'dir. ör: id attribute'nün value'i session_email,type attribute'nün value'sü "email"...
+        findElement()  : websayfasında istediğimiz elementi bulup bize getiriyor
+        findElements() : web sayfasındaki istediğimiz elementleri bulup bize getiriyor
+        sendKeys("gönderilcek yazı")     : web sayfasındaki webelementin içerisine yazı göndermek için kullanılır
+
+        --------LOCATORS-------
+        locators   : konum bulucular. bir web sayfasındaki web elementlerin yerini bulmamıza yarar. 8 tane locators
+        		  vardır. id, name, className, tagName, linkText, partialLinkText, css, xpath,
+
+
+
+
+        WebElement :bir web sayfasındaki web elementlerin data type'ı WebElementtir
+
+        ==========================
+        <a id="sign-in" class="nav-item nav-link" data-test="sign-in" href="/sign_in">Sign in</a>
+
+        tagname   : a
+        attribute : id, class, data-test, href,
+        value     : id="sign-in" ,
+                    class="nav-item nav-link" ,
+                    data-test="sign-in" ,
+                    href="/sign_in"
+
+        id: bir locasyon türüdür. bir wenelementi id'sine bakarak bulabiliriz.
+
+        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS); : sayfa yüklenene kadar en fazla 5 saniye bekletir. öncesinde yüklenirse beklemez. OLMAZSA OLMAZLARIMIZDAN
+        NOT: sayfa başlığı bir webelement değildir.
+        	 html kodlarının içindeki body kısmındakiler sayfamızın webelementlerdir

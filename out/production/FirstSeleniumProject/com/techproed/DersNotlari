@@ -1,0 +1,170 @@
+=========================================================================================SELENİUM 1.DERS (24.05.2021)
+1 - İlk önce yeni bir proje oluşturduk.
+	file -> new -> project
+	java'yı seçtik, next butonlarına tıkladık.
+	projemize isim verdik ve projemizi oluşturduk.
+
+2 - Daha projemizde kullanmak için, Selenium kütüphanelerini projemize 	import ettik.
+	file -> project structure -> modules -> depencencies'e tıkladık.
+	+ butonuna tıklayarak 7 tane kütüphane dosyasını projemize ekledik.
+
+Kütüphane dosyalarını projemize import etmeseydik ne olurdu ?
+- Kütüphanede hazır yazılmış kodları kullanamayacağımız için test işlemini gerçekleştiremeyiz.
+
+***** seleniumu kullanmak istiyorsanız, projenize eklemek zorundasınız.
+
+----------------------------KOMUTLAR----------------------------------
+1. get    :   yazdığımız url(adres)'in açılmasını sağlar.
+2. close  :   açık olan pencereyi kapatır.
+3. quit	  :   açık olan driverı tüm penceleri ile birlikte kapatıyor.
+
+------------------NAVİGATE METHODS----------------------
+.navigate().to("sayfa adresi") -> istediğiniz websayfasına geçiş yapıyor.
+.navigate().back() 	  -> bir önceki sayfaya geri dönüyor.
+.navigate().forward() -> geri geldiğimiz bir önceki sayfaya gidiyor.
+.navigate().refresh() -> sayfayı yeniliyor.
+.manage().window().maximize() -> driverımız ekranı kaplıyor.
+
+
+===========================================================================================SELENİUM 2.DERS (24.05.2021)
+DERS TEKRARI
+1-proje oluşturduk
+				  file-> new -> project-> java -< next-> proje ismi
+2-kütüphaneleri projeye ekledik
+ 				  file-> projecy scructor-> modules-> dependencies-> +->jars or directory-> kütüphaneleri ekledik
+3- package ve class oluşturduk
+4- main methodu ekledik
+5- System.setProperty oluşturduk
+6- Webdriver driver = new ChromeDriver-> dirver nesnesi ürettik
+
+----------KOMUTLAR------------
+
+1-.manege().window().maximize() : driver'ı ekrana kaplatıyoruz
+2- get() 						: istediğimiz adrese gidiyorduk
+3- close()						: açık olan driverımızı kapatıyor
+4- quit() 						: tüm driver'ı yani tüm sekmeleri kapatıyordu
+
+--------NAVİGATEMETHODS-------
+
+1- .navigate().to("adres ismi") : istediğimiz web adresine bizi götürüyor
+2- .navigate().back()           : istediğimiz web adresinden bir önceki adrese geri gidiyor
+3- .navigate().forward()		: geldiğimiz sayaya ileriye gidiyor
+4- .navigate().refresh() 		: bulunduğu web sayfasını yeniliyordu
+
+
+.getTitle()       => bulunduğumuz sayfanın title'ını (başlığını) alıyoruz
+.get CurrentUrl() => bulunduğumuz sayfanın url'sini (adresini) alıyoruz
+sout              => syste.out.println() kısaca yazılımı
+
+===========================================================================================SELENİUM 3.DERS (26.05.2021)
+
+DERS TEKRARI
+
+getTitle()      : bulunduğumuz sayfanın başlığını alıyorduk
+getCurrentUrl() : bulunduğumuz sayfanın Url'sini (adresini) alıyorduk
+if(){}else{}    : koşul ile doğrulatma işlemi yaptık
+.contains()     : içeriyor mu diye sorgulattık
+
+
+Webelement : bir web sayfsında gördüğümüz herşey bir webelementtir
+
+
+<input type="email" class="form-control" placeholder="Email" data-test="email" name="session[email]" id="session_email">
+
+
+<.......>
+
+<a
+<div
+<span
+...
+tagName   : tag ismi : bir web sayfasındaki herhangi bir webelementin html kodlarında < işaretinden sonra gelen ilk
+kelime tagName'dir
+		ör: <input, <a, <span,...
+
+attribute : bir web saydasında herhangi bir webelementin html kodlarında  tag nameden sonra gelen
+            devamında = olan kelimelere denir
+            ör: class, type, name data-test, id,....
+value     : bir web saydasında herhangi bir webelementin html kodlarında attribue'lere karşılık gelen
+            değerler value'dir. ör: id attribute'nün value'i session_email,type attribute'nün value'sü "email"...
+findElement()  : websayfasında istediğimiz elementi bulup bize getiriyor
+findElements() : web sayfasındaki istediğimiz elementleri bulup bize getiriyor
+sendKeys("gönderilcek yazı")     : web sayfasındaki webelementin içerisine yazı göndermek için kullanılır
+
+--------LOCATORS-------
+locators   : konum bulucular. bir web sayfasındaki web elementlerin yerini bulmamıza yarar. 8 tane locators
+		  vardır. id, name, className, tagName, linkText, partialLinkText, css, xpath,
+
+
+
+
+WebElement :bir web sayfasındaki web elementlerin data type'ı WebElementtir
+
+<a id="sign-in" class="nav-item nav-link" data-test="sign-in" href="/sign_in">Sign in</a>
+
+tagname   : a
+attribute : id, class, data-test, href,
+value     : id="sign-in" ,
+            class="nav-item nav-link" ,
+            data-test="sign-in" ,
+            href="/sign_in"
+
+id: bir locasyon türüdür. bir wenelementi id'sine bakarak bulabiliriz.
+
+driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS); : sayfa yüklenene kadar en fazla 5 saniye bekletir.
+öncesinde yüklenirse beklemez. OLMAZSA OLMAZLARIMIZDAN
+NOT: sayfa başlığı bir webelement değildir.
+	 html kodlarının içindeki body kısmındakiler sayfamızın webelementlerdir
+
+============================================================================================SELENİUM 4.DERS(27.05.2021)
+
+DERS TEKRARI
+webelemnt: bir web sayfasında görünen herşey bir webelemnttir
+WebElement: wen elementin date type
+click: tıklama yapar
+value: attribute karşılık gelen değerler
+attribute: bir web elementin özellikleri. id, name, class
+locators: konum bulucu, adres gösterici. 8 taneydi
+tagname: < işaretinden sonra gelen ilk kelime. span, a, div
+id: bir locator. web elementin kimlik numarası. bir tanedir
+name: web elementin attributelerinden bir tanesi. ^tektir
+findElement: web elementini bulur
+findElements: web elementlerini bulur
+sendKeys: web elementin içine yazı gönderir
+
+
+clear() 	   		   		: içerissinde yazı olan web elementi temizler, siler
+isDisplayed ()         		: bir webelementin görünürlüğünü sorgular
+*****NoSuchElementException : böyle bir web element yok hatası. bu hatayı alıyorsanız ya hız problemi
+							  vardır, ya da locators yanlıştır
+className			   		: bir web elementini bulmaya yarayan locators'tır. eğer class değerinde arada
+						      boşlukvarsa o class değeri kullanılmaz .
+linkText               		: bir locators'tır. bir webelementi link'indeki yazısına göre buldurabiliriz
+partialLinkText        		: bir locators'tır. bir linkin içindeki yazının bir kısmına göre bulduruyoruz
+tagName				   		: bir locators'tır. bir webelementin tagname'ine göre buldurabiliriz
+getText()			   		: bir web elementin yazısını aldırır
+
+============================================================================================SELENİUM 5.DERS(29.05.2021)
+        selenium dersinde locators konusu dendiginde akla gelen ilk method xpath olmalidir.
+        Absolute xpath:Mutlak :Parent dan child a tek tek gidilir,yaygin olarak kullanilmaz..
+        tag ler arasinda '/' kullanilir
+        Absolute xpath = //body/div/header/div/div/div/div
+        Eger ayni path’e sahip birden fazla element varsa index kullanilabilir. [2] gibi
+
+        Relative xpath:Bagil :Yaygin kullanilir '//' kullanilarak bir elemente gidilir.
+        ***tagName[@attribute='value'];
+        Relative xpath = //div[@id='logo'] veya //div[@class=’flex col logo’]
+
+    ====xpath bulma yollari
+        ● ************ //tagName[@attribute='value']; => ONEMLİ
+        ● tagName sadece tagname ile locate etmek icin
+        ● //*[@type=‘email’] tag ismi onemli olmadan attribute’u type olarak “email” degeri alan elementleri verir
+        ● Exact Text Belirli bir text) ile element bulma:
+                //tagname[.='text name'] Belirli bir tagname , herhangi bir attribute, belirli bir text
+                *********    //*[.='text name'] Herhangi bir tag, herhangi bir attribute,belirli bir text.  => ONEMLİ
+                //*[(text()='exact text with extra space and all')] Herhangi bir tag, belirli bir text
+        ● Belirli bir metni içeren bir öğeyi bulmak için şunları kullanabiliriz:
+                 //*[contains(text(),'piece of text
+        ● Birden fazla attribute yazabiliriz
+                 //tag[@attribute1='value 1' and attribute2='value2']
+        Example  : //div[@id='logo' or class='flex col logo' ]
